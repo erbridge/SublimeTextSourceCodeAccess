@@ -1,0 +1,22 @@
+{
+    "FileVersion" : 3,
+    "FriendlyName" : "Sublime Text Source Code Access",
+    "Version" : 1,
+    "VersionName" : "1.0",
+    "CreatedBy" : "Felix Laurie von Massenbach",
+    "CreatedByURL" : "http://erbridge.co.uk/",
+    "EngineVersion" : "4.7.3",
+    "Description" : "Allows access to source code with Sublime Text.",
+    "Category" : "Developer.Source Code Access",
+    "EnabledByDefault" : true,
+
+    "Modules" :
+    [
+        {
+            "Name" : "SublimeTextSourceCodeAccess",
+            "Type" : "Developer",
+            "WhitelistPlatforms" : [ "Linux" ],
+            "LoadingPhase" : "PreDefault"
+        }
+    ]
+}
