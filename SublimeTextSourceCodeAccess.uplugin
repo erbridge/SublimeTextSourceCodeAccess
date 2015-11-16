@@ -5,7 +5,7 @@
     "VersionName" : "1.0",
     "CreatedBy" : "Felix Laurie von Massenbach",
     "CreatedByURL" : "http://erbridge.co.uk/",
-    "EngineVersion" : "4.7.3",
+    "EngineVersion" : "4.10",
     "Description" : "Allows access to source code with Sublime Text.",
     "Category" : "Developer.Source Code Access",
     "EnabledByDefault" : true,
