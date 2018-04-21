@@ -30,6 +30,44 @@ bool FSublimeTextSourceCodeAccessor::CanAccessSourceCode() const
     return FPaths::FileExists(TEXT("/usr/bin/clang"));
 }
 
+bool FSublimeTextSourceCodeAccessor::DoesSolutionExist() const
+{
+    FString FullPath;
+    if ( FDesktopPlatformModule::Get()->GetSolutionPath(FullPath) )
+    {
+        return FPaths::FileExists(FullPath);
+    }
+    return false;
+}
+
+bool FSublimeTextSourceCodeAccessor::OpenSolutionAtPath(const FString& InSolutionPath)
+{
+    FString FullPath = InSolutionPath;
+    if ( FPaths::FileExists(FullPath) )
+    {
+        // Add this to handle spaces in path names.
+        const FString NewFullPath = FString::Printf(TEXT("\"%s\""), *FullPath);
+
+        FString Editor = FString(TEXT("/usr/bin/subl"));
+        if ( FLinuxPlatformProcess::CreateProc(
+                *Editor,
+                *NewFullPath,
+                true,
+                true,
+                false,
+                nullptr,
+                0,
+                nullptr,
+                nullptr
+            ).IsValid() )
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 FName FSublimeTextSourceCodeAccessor::GetFName() const
 {
     return FName("SublimeTextSourceCodeAccessor");
