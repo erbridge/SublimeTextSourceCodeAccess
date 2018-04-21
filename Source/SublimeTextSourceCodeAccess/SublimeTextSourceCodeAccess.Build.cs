@@ -23,7 +23,7 @@ namespace UnrealBuildTool.Rules
 {
     public class SublimeTextSourceCodeAccess : ModuleRules
     {
-        public SublimeTextSourceCodeAccess(TargetInfo Target)
+        public SublimeTextSourceCodeAccess(ReadOnlyTargetRules Target): base(Target)
         {
             PrivateDependencyModuleNames.AddRange(
                 new string[]
